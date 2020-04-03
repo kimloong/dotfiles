@@ -1,0 +1,12 @@
+# 说明
+* Redis GUI管理软件,支持redis 2.8+，再往上版本需要使用rdm里维护的包
+* 因为原来的构建使用的是github来下载代码，国内速度太慢，所以更换成了gitee里的代码镜像。
+
+# 来源
+* https://aur.archlinux.org/redis-desktop-manager.git
+* https://aur.archlinux.org/packages/redis-desktop-manager
+
+# 构建
+```
+makepkg -sri
+```

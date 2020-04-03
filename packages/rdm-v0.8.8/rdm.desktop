@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Redis Desktop Manager Old
+Comment=Redis Desktop Manager Old
+Type=Application
+Categories=Development;
+Exec=rdm-old
+Terminal=false
+StartupNotify=true
+Icon=rdm-old.png

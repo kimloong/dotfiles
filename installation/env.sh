@@ -1,0 +1,2 @@
+export PERSONAL_GIT_USER_EMAIL=312891416@qq.com
+export PERSONAL_GIT_USER_NAME=kimloong
