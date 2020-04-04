@@ -55,7 +55,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym Mod1+Control+a exec --no-startup-id flameshot gui -p /tmp
 
 # lock
-bindsym $mod+shift+l exec --no-startup-id i3lock -c --nofork
+bindsym $mod+shift+l exec --no-startup-id i3lock -c 90a959 --nofork
 
 set $launcher "Launcher (f)FileManager (c)Chrome"
 
