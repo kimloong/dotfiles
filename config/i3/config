@@ -55,7 +55,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym Mod1+Control+a exec --no-startup-id flameshot gui -p /tmp
 
 # lock
-bindsym $mod+p exec --no-startup-id i3lock --nofork
+bindsym $mod+shift+l exec --no-startup-id i3lock -c --nofork
 
 set $launcher "Launcher (f)FileManager (c)Chrome"
 
@@ -221,27 +221,6 @@ exec --no-startup-id clipit
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-
-## Base16 Gruvbox dark, hard
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
-
-set $base00 #151515
-set $base01 #202020
-set $base02 #303030
-set $base03 #505050
-set $base04 #B0B0B0
-set $base05 #D0D0D0
-set $base06 #E0E0E0
-set $base07 #F5F5F5
-set $base08 #AC4142
-set $base09 #D28445
-set $base0A #F4BF75
-set $base0B #90A959
-set $base0C #75B5AA
-set $base0D #6A9FB5
-set $base0E #AA759F
-set $base0F #8F5536
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
