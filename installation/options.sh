@@ -22,6 +22,15 @@ echo -e "\e[1;33m     installed archiving and compression tool \e[0m"
 
 echo -e "\e[1;33m     installing install other tool \e[0m"
 # install other tool
+# vs code
+yay -S --noconfirm --needed code
+
+# install teamviewer
+# 使用时需要先到官网登录信任设置，否则会提示Not ready,please check your connection
+# teamviewer.com
+yay -S --noconfirm --needed teamviewer
+# sudo teamviewer daemon start
+
 echo -e "\e[1;33m     installed install other tool \e[0m"
 
 echo -e "\e[1;33m installed prepare option \e[0m"

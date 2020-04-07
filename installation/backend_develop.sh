@@ -49,6 +49,12 @@ sudo pacman -S --noconfirm --needed maven
 echo -e "\e[1;33m     installed maven \e[0m"
 # install maven end
 
+# install tomcate begin
+echo -e "\e[1;33m     installing maven \e[0m"
+sudo pacman -S --noconfirm --needed tomcat8
+echo -e "\e[1;33m     installed maven \e[0m"
+# install tomcate end
+
 # install idea begin
 echo -e "\e[1;33m     installing idea \e[0m"
 if [ ! -f /usr/bin/idea ]; then

@@ -26,6 +26,6 @@ sudo sh -c "sed -i "s/${vnext_users_id_placeholder}/${vnext_users_id}/g" /etc/v2
 
 download_path="${HOME}/Downloads"
 echo -e "\e[1;33m     Download Chrome proxy extension to ${download_path} \e[0m"
-wget https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.5.20/SwitchyOmega_Chromium.crx -O ${download_path}/SwitchyOmega_Chromium.crx
+wget https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.5.19/SwitchyOmega_Chromium_2_5_19.crx -O ${download_path}/SwitchyOmega_Chromium.crx
 
 echo -e "\e[1;33m installed v2ray \e[0m"

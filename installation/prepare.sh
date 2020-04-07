@@ -48,6 +48,16 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 
 # chrome
 yay -S --noconfirm --needed google-chrome
+# set default browser
+sudo xdg-settings set default-web-browser google-chrome.desktop
+xdg-mime default google-chrome.desktop text/html
+xdg-mime default google-chrome.desktop x-scheme-handler/http
+xdg-mime default google-chrome.desktop x-scheme-handler/https
+xdg-mime default google-chrome.desktop x-scheme-handler/about
+# xdg-mime query default text/html
+# xdg-mime query default x-scheme-handler/http
+# xdg-mime query default x-scheme-handler/https
+# xdg-mime query default x-scheme-handler/about
 
 # l2tp
 yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
