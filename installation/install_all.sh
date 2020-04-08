@@ -16,6 +16,12 @@ bash ${work_path}/prepare.sh || (
   exit 1
 )
 
+# install v2ray
+bash ${work_path}/v2ray.sh || (
+  echo "greatwall failed"
+  exit 1
+)
+
 # install font
 bash ${work_path}/font.sh || (
   echo "font failed"
@@ -61,12 +67,6 @@ bash ${work_path}/i3.sh || (
 # install ranger
 bash ${work_path}/ranger.sh || (
   echo "ranger failed"
-  exit 1
-)
-
-# install v2ray
-bash ${work_path}/v2ray.sh || (
-  echo "greatwall failed"
   exit 1
 )
 
