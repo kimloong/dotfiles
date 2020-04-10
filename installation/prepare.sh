@@ -26,6 +26,7 @@ sudo pacman -Ssy
 # echo -e "\e[1;33m     finish setting language \e[0m"
 
 ln -s -f ${base_path}/Xresources ~/.Xresources
+ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
 ln -s -f ${base_path}/xinitrc ~/.xinitrc
 ln -s -f ${base_path}/xprofile ~/.xprofile
 
@@ -62,5 +63,7 @@ xdg-mime default google-chrome.desktop x-scheme-handler/about
 # l2tp
 yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
 echo -e "\e[1;33m     installed package and software \e[0m"
+
+ln -s -f ${base_path}/scripts ~/.scripts
 
 echo -e "\e[1;33m installed prepare \e[0m"

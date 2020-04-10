@@ -73,7 +73,7 @@ URxvt.depth:                      32
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 [50]base00
+URxvt*background:                 [75]base00
 URxvt*foreground:                 base05
 URxvt*saveLines:                  5000
 
