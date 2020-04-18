@@ -113,4 +113,10 @@ fi
 # yay -S --noconfirm --needed astah-professional
 echo -e "\e[1;33m     installed other tool \e[0m"
 
+# 平时压测时，本地的端口不够使用，所以修改这个配置
+# 调低端口释放后的等待时间，默认为60s,修改为15~30s
+sudo sh -c "echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout"
+# 释放TIME_WAIT端口给新连接使用
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse"
+
 echo -e "\e[1;33m installed backend develop \e[0m"

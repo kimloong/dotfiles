@@ -11,7 +11,7 @@
 set $mod Mod4
 
 title_align center
-default_border pixel
+default_border pixel 1
 default_floating_border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -63,6 +63,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 exec --no-startup-id i3-sensible-terminal -name "scratchpad_terminal"
 for_window [instance="scratchpad_terminal"] move scratchpad
 bindsym $mod+t [instance="scratchpad_terminal"] scratchpad show, resize set 960 640, move position center
+bindsym $mod+Shift+t exec --no-startup-id i3-sensible-terminal -name "scratchpad_terminal"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -75,7 +76,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym Mod1+Control+a exec --no-startup-id flameshot gui -p /tmp
 
 # lock
-bindsym $mod+shift+l exec --no-startup-id i3lock -c 90a959 -i ~/wallpaper/lock.png --nofork
+bindsym $mod+Control+l exec --no-startup-id i3lock -c 90a959 -i ~/wallpaper/lock.png --nofork
 
 set $launcher "Launcher [F]ileManager [B]rower"
 
@@ -216,6 +217,7 @@ bindsym $mod+r mode "resize"
 #     status_command i3status
 # }
 
+for_window [class="Yad" title="yad-calendar"] floating enable
 # for_window [class="jetbrains-idea"] move container to workspace $ws1
 # for_window [class="Google-chrome"]  move container to workspace $ws2
 
