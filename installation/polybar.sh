@@ -8,6 +8,8 @@ base_path=$(dirname $(readlink -f ${work_path}))
 config_path="${base_path}/config/polybar"
 
 sudo pacman -S --noconfirm --needed polybar
+# for pop calendar
+sudo pacman -S --noconfirm --needed yad xdotool
 mkdir -p ~/.config/polybar
 ln -s -f ${config_path} ~/.config/polybar
 chmod 755 ~/.config/polybar/launch.sh

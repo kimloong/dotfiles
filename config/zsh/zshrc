@@ -104,8 +104,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias rg="ranger"
 
-alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias unsetproxy="unset ALL_PROXY"
+alias set-proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unset-proxy="unset ALL_PROXY"
 
-alias company-vpn="bash ~/.scripts/company-vpn.sh"
+alias set-company-vpn="bash ~/.scripts/set-company-vpn.sh"
+alias unset-company-vpn="bash ~/.scripts/unset-company-vpn.sh"
 # Custom end

@@ -62,6 +62,9 @@ xdg-mime default google-chrome.desktop x-scheme-handler/about
 
 # l2tp
 yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
+
+sudo pacman -S --noconfirm --needed htop
+
 echo -e "\e[1;33m     installed package and software \e[0m"
 
 ln -s -f ${base_path}/scripts ~/.scripts
