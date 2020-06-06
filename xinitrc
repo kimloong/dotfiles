@@ -35,5 +35,8 @@ fi
 [ -f /etc/xprofile ] && source /etc/xprofile
 [ -f ~/.xprofile ] && source ~/.xprofile
 
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+
 mkdir -p ~/.local/share/i3/log
 exec i3 -V >> ~/.local/share/i3/log/i3log-$(date +'%F') 2>&1

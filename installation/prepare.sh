@@ -18,12 +18,12 @@ sudo pacman-mirrors -i -c China
 yay -Ssy
 
 echo -e "\e[1;33m     setting language \e[0m"
-# sudo locale -a
-# sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
-# sudo sed -i "s/^en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g" /etc/locale.gen
-# sudo locale-gen
-# sudo localectl set-locale LANG=zh_CN.UTF-8
-# echo -e "\e[1;33m     finish setting language \e[0m"
+sudo locale -a
+sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
+sudo sed -i "s/^en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g" /etc/locale.gen
+sudo locale-gen
+sudo localectl set-locale LANG=zh_CN.UTF-8
+echo -e "\e[1;33m     finish setting language \e[0m"
 
 ln -s -f ${base_path}/Xresources ~/.Xresources
 ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
