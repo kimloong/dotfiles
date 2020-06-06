@@ -9,7 +9,7 @@ base_path=$(dirname $(readlink -f ${work_path}))
 config_path="${base_path}/config/i3"
 scripts_path="${base_path}/scripts/i3"
 
-# sudo pacman -S --noconfirm --needed i3-wm i3lock xss-lock
+# yay -S --noconfirm --needed i3-wm i3lock xss-lock
 
 mkdir -p ~/.config/i3
 ln -f -s ${config_path}/config ~/.config/i3/config

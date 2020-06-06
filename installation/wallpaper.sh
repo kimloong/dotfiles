@@ -8,7 +8,7 @@ work_path=$(dirname $(readlink -f $0))
 base_path=$(dirname $(readlink -f ${work_path}))
 scripts_path="${base_path}/scripts/wallpaper"
 
-sudo pacman -S --noconfirm --needed feh
+yay -S --noconfirm --needed feh
 
 # create wallpaper dir
 mkdir -p ~/wallpaper

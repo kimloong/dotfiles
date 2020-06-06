@@ -15,9 +15,9 @@ cd ${last_path}
 
 sudo timedatectl set-ntp true
 sudo pacman-mirrors -i -c China
-sudo pacman -Ssy
+yay -Ssy
 
-# echo -e "\e[1;33m     setting language \e[0m"
+echo -e "\e[1;33m     setting language \e[0m"
 # sudo locale -a
 # sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
 # sudo sed -i "s/^en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g" /etc/locale.gen
@@ -31,20 +31,20 @@ ln -s -f ${base_path}/xinitrc ~/.xinitrc
 ln -s -f ${base_path}/xprofile ~/.xprofile
 
 # install common make tools
-sudo pacman -S --noconfirm --needed go
+yay -S --noconfirm --needed go
 if [ $(grep -c -e "GOPROXY" /etc/profile) -eq '0' ]; then
   sudo sh -c "echo '# export GOPROXY=https://goproxy.cn' >> /etc/profile"
   sudo sh -c "echo 'export GOPROXY=https://mirrors.aliyun.com/goproxy/' >> /etc/profile"
 fi
 source /etc/profile
 
-sudo pacman -S --noconfirm --needed rust cmake
-sudo pacman -S --noconfirm --needed nodejs npm electron
-sudo pacman -S --noconfirm --needed python2
+yay -S --noconfirm --needed rust cmake
+yay -S --noconfirm --needed nodejs npm electron
+yay -S --noconfirm --needed python2
 
 # install package and software
 echo -e "\e[1;33m     installing package and software \e[0m"
-sudo pacman -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools flameshot
+yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools flameshot
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 
 # chrome
@@ -63,7 +63,7 @@ xdg-mime default google-chrome.desktop x-scheme-handler/about
 # l2tp
 yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
 
-sudo pacman -S --noconfirm --needed htop
+yay -S --noconfirm --needed htop
 
 echo -e "\e[1;33m     installed package and software \e[0m"
 

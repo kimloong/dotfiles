@@ -8,7 +8,7 @@ work_path=$(dirname $(readlink -f $0))
 base_path=$(dirname $(readlink -f ${work_path}))
 config_path="${base_path}/config/picom"
 
-# sudo pacman -S --noconfirm --needed picom
+yay -S --noconfirm --needed picom
 mkdir -p ~/.config/picom
 ln -f -s ${config_path}/picom.conf ~/.config/picom/picom.conf
 

@@ -49,7 +49,7 @@ echo -e "\e[1;33m     installed jdk \e[0m"
 # install maven begin
 echo -e "\e[1;33m     installing maven \e[0m"
 # 当pom.xml中的基本属性使用了变量后，3.6.x会抛npe，所以不使用这个版本
-# sudo pacman -S --noconfirm --needed maven
+# yay -S --noconfirm --needed maven
 
 if [ ! -f /etc/profile.d/maven.sh ]; then
   maven_install_path="/opt"
@@ -70,7 +70,7 @@ echo -e "\e[1;33m     installed maven \e[0m"
 
 # install tomcate begin
 echo -e "\e[1;33m     installing tomcat8 \e[0m"
-sudo pacman -S --noconfirm --needed tomcat8
+yay -S --noconfirm --needed tomcat8
 sudo chmod 755 -R /usr/share/tomcat8/conf
 sudo chmod 777 -R /var/lib/tomcat8/webapps/manager
 echo -e "\e[1;33m     installed tomcat8 \e[0m"
@@ -86,7 +86,7 @@ echo -e "\e[1;33m     installed idea \e[0m"
 # install idea end
 
 echo -e "\e[1;33m     installing database tool \e[0m"
-sudo pacman -S --noconfirm --needed mysql-workbench
+yay -S --noconfirm --needed mysql-workbench
 if [ ! -f /usr/bin/mongodb-compass ]; then
   yay -S --noconfirm --needed mongodb-compass
 fi
@@ -97,7 +97,7 @@ fi
 echo -e "\e[1;33m     installed database tool \e[0m"
 
 echo -e "\e[1;33m     installing docker \e[0m"
-sudo pacman -S --noconfirm --needed docker
+yay -S --noconfirm --needed docker
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json << EOF
 {
@@ -110,7 +110,7 @@ echo -e "\e[1;33m     installing other tool \e[0m"
 if [ ! -f /usr/bin/postman ]; then
   yay -S --noconfirm --needed postman-bin
 fi
-# yay -S --noconfirm --needed astah-professional
+yay -S --noconfirm --needed astah-professional
 echo -e "\e[1;33m     installed other tool \e[0m"
 
 # 平时压测时，本地的端口不够使用，所以修改这个配置

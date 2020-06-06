@@ -8,7 +8,7 @@ work_path=$(dirname $(readlink -f $0))
 base_path=$(dirname $(readlink -f ${work_path}))
 config_path="${base_path}/config/dunst"
 
-# sudo pacman -S --noconfirm --needed libnotify dunst
+yay -S --noconfirm --needed libnotify dunst
 mkdir -p ~/.config/dunst/
 ln -s -f ${config_path}/dunstrc ~/.config/dunst/dunstrc
 # First, use systemctl enable to set up the service to run at boot.
