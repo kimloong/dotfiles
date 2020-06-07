@@ -10,7 +10,6 @@ config_path="${base_path}/config/polybar"
 yay -S --noconfirm --needed polybar
 # for pop calendar
 yay -S --noconfirm --needed yad xdotool
-mkdir -p ~/.config/polybar
 ln -s -f ${config_path} ~/.config/polybar
 chmod 755 ~/.config/polybar/launch.sh
 chmod 755 ~/.config/polybar/popup-calendar.sh
