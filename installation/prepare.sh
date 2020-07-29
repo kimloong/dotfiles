@@ -45,7 +45,11 @@ yay -S --noconfirm --needed python2
 # install package and software
 echo -e "\e[1;33m     installing package and software \e[0m"
 yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools flameshot
+sudo systemctl enable sshd.service
+sudo systemctl restart sshd.service
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+# default aur
+# yay --aururl "https://aur.archlinux.org" --save
 
 # chrome
 yay -S --noconfirm --needed google-chrome

@@ -40,6 +40,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
+set $outputRight "DVI-D-1"
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -60,14 +62,14 @@ bindsym $mod+p workspace number $ws5
 bindsym $mod+bracketleft workspace number $ws6
 
 workspace 1 output primary
-workspace 2 output right primary
-workspace 3 output primary
-workspace 4 output right primary
-workspace 5 output primary
-workspace 6 output right primary
-workspace 7 output primary
-workspace 8 output right primary
-workspace 9 output primary
+workspace 2 output primary
+workspace 3 output $outputRight primary
+workspace 4 output $outputRight primary
+workspace 5 output $outputRight primary
+workspace 6 output $outputRight primary
+workspace 7 output $outputRight primary
+workspace 8 output $outputRight primary
+workspace 9 output $outputRight primary
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -161,8 +163,8 @@ mode "Move" {
     bindsym 9 move container to workspace number $ws9; mode "default"
     bindsym minus  move scratchpad                   ; mode "default"
 
-    bindsym Shift+h move workspace to output left    ; mode "default"
-    bindsym Shift+l move workspace to output right   ; mode "default"
+    bindsym Shift+$left move workspace to output left; mode "default"
+    bindsym Shift+$right move workspace to output right; mode "default"
 
     bindsym m mode "default"
     bindsym Escape mode "default"
