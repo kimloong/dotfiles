@@ -14,8 +14,8 @@ git config user.name ${PERSONAL_GIT_USER_NAME}
 cd ${last_path}
 
 sudo timedatectl set-ntp true
-sudo pacman-mirrors -i -c China
-yay -Ssy
+sudo pacman-mirrors -c China
+sudo pacman -Ssy
 
 echo -e "\e[1;33m     setting language \e[0m"
 sudo locale -a
