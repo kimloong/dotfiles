@@ -17,6 +17,9 @@ sudo timedatectl set-ntp true
 sudo pacman-mirrors -c China
 sudo pacman -Ssy
 
+sudo pacman -S --noconfirm --needed xdg-user-dirs
+xdg-user-dirs-update
+
 echo -e "\e[1;33m     setting language \e[0m"
 sudo locale -a
 sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
@@ -25,9 +28,7 @@ sudo locale-gen
 sudo localectl set-locale LANG=zh_CN.UTF-8
 echo -e "\e[1;33m     finish setting language \e[0m"
 
-ln -s -f ${base_path}/Xresources ~/.Xresources
 ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
-ln -s -f ${base_path}/xinitrc ~/.xinitrc
 ln -s -f ${base_path}/xprofile ~/.xprofile
 
 # install common make tools
@@ -44,7 +45,8 @@ yay -S --noconfirm --needed python2
 
 # install package and software
 echo -e "\e[1;33m     installing package and software \e[0m"
-yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools flameshot
+yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools
+#yay -S --noconfirm --needed flameshot
 sudo systemctl enable sshd.service
 sudo systemctl restart sshd.service
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
@@ -65,7 +67,7 @@ xdg-mime default google-chrome.desktop x-scheme-handler/about
 # xdg-mime query default x-scheme-handler/about
 
 # l2tp
-yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
+#yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
 
 yay -S --noconfirm --needed htop
 

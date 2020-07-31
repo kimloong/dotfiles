@@ -29,10 +29,10 @@ bash ${work_path}/font.sh || (
 )
 
 # install random wallpaper
-bash ${work_path}/wallpaper.sh || (
-  echo "wallpaper failed"
-  exit 1
-)
+#bash ${work_path}/wallpaper.sh || (
+#  echo "wallpaper failed"
+#  exit 1
+#)
 
 # install fcitx
 bash ${work_path}/fcitx.sh || (
@@ -41,26 +41,26 @@ bash ${work_path}/fcitx.sh || (
 )
 
 # install picom
-bash ${work_path}/picom.sh || (
-  echo "picom failed"
-  exit 1
-)
+#bash ${work_path}/picom.sh || (
+#  echo "picom failed"
+#  exit 1
+#)
 
 # install rofi
-bash ${work_path}/rofi.sh || (
-  echo "rofi failed"
-  exit 1
-)
+#bash ${work_path}/rofi.sh || (
+#  echo "rofi failed"
+#  exit 1
+#)
 
 # install polybar
-bash ${work_path}/polybar.sh || (
-  echo "polybar failed"
-  exit 1
-)
+#bash ${work_path}/polybar.sh || (
+#  echo "polybar failed"
+#  exit 1
+#)
 
-# install i3
-bash ${work_path}/i3.sh || (
-  echo "i3 failed"
+# install deepin
+bash ${work_path}/deepin.sh || (
+  echo "deepin failed"
   exit 1
 )
 
@@ -71,10 +71,10 @@ bash ${work_path}/ranger.sh || (
 )
 
 # install dunst
-bash ${work_path}/dunst.sh || (
-  echo "dunst failed"
-  exit 1
-)
+#bash ${work_path}/dunst.sh || (
+#  echo "dunst failed"
+#  exit 1
+#)
 
 # install zsh
 bash ${work_path}/zsh.sh || (

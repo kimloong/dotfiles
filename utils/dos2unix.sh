@@ -9,6 +9,4 @@ sed -i 's/\r//g' `grep "\r" -rl ${base_path}/installation`
 sed -i 's/\r//g' `grep "\r" -rl ${base_path}/config`
 sed -i 's/\r//g' `grep "\r" -rl ${base_path}/utils`
 sed -i 's/\r//g'  ${base_path}/xprofile`
-sed -i 's/\r//g'  ${base_path}/Xresources`
 sed -i 's/\r//g'  ${base_path}/xhook`
-sed -i 's/\r//g'  ${base_path}/xinitrc`
