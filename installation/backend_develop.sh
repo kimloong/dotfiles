@@ -11,37 +11,26 @@ last_path=$(pwd)
 
 # install jdk begin
 echo -e "\e[1;33m     installing jdk \e[0m"
-jdk_major=8
 
 if [ ! -f /usr/bin/java ]; then
-   yay -S --noconfirm --needed jdk8
-#  jdk_file_path=$(find ${local_package_path} -type f -name "jdk-${jdk_major}*.tar.gz")
-#  jdk_filename=${jdk_file_path##*/}
-#  if [ -z "${jdk_filename}" ]; then
-#    echo -e "\e[1;31m     Can't find jdk local package in ${local_package_path}! \e[0m"
-#    exit 1
-#  fi
-#
-#  jce_policy_file_path=$(find ${local_package_path} -type f -name "jce_policy-${jdk_major}.zip")
-#  jce_policy_filename=${jce_policy_file_path##*/}
-#  if [ -z "${jce_policy_filename}" ]; then
-#    echo -e "\e[1;31m     Can't find jce_policy local package in ${local_package_path}! \e[0m"
-#    exit 1
-#  fi
-#
-#  cd "${local_package_path}"
-#  rm -rf jdk${jdk_major}
-#  git clone https://aur.archlinux.org/jdk${jdk_major}.git
-#  cd jdk${jdk_major}
-#
-#  ln -s ${local_package_path}/jce_policy-${jdk_major}.zip ./
-#  sed -i '/^source\[1\]=\"manual:\/\/\${_srcfil\}\"/i\source[0]="jce_policy-$aaa
-#  {_major}.zip"' PKGBUILD
-#  makepkg -sri
-#
-#  rm -rf jdk${jdk_major}
-#  cd ${last_path}
+  jdk_major=8
+  jdk_install_path="/usr/local"
+  echo "jdk_install_path:${jdk_install_path}"
+  jdk_file_path=$(find ${local_package_path} -type f -name "jdk-${jdk_major}*.tar.gz")
+  echo "jdk_file_path:${jdk_file_path}"
+  sudo cp -f ${jdk_file_path} ${jdk_install_path}
+  jdk_file_path=$(find ${jdk_install_path} -type f -name "jdk-${jdk_major}*.tar.gz")
+  sudo tar -zxf ${jdk_file_path}
 
+  install_file_path=$(find ${jdk_install_path} -type d -name "jdk1.${jdk_major}*")
+  sudo chmod -R 755 ${install_file_path}
+  echo "install_file_path:${install_file_path}"
+
+  sudo sh -c "echo '#!/bin/bash' > /etc/profile.d/jdk.sh"
+  sudo sh -c "echo 'export JAVA_HOME=${install_file_path}' >> /etc/profile.d/jdk.sh"
+  sudo sh -c "echo 'export PATH=\$PATH:\${JAVA_HOME}/bin' >> /etc/profile.d/jdk.sh"
+
+  sudo chmod 755 /etc/profile.d/jdk.sh
 fi
 
 echo -e "\e[1;33m     installed jdk \e[0m"
@@ -53,16 +42,20 @@ echo -e "\e[1;33m     installing maven \e[0m"
 # yay -S --noconfirm --needed maven
 
 if [ ! -f /etc/profile.d/maven.sh ]; then
-  maven_install_path="/opt"
+  maven_install_path="/usr/local"
+  echo "maven_install_path:${maven_install_path}"
   maven_file_path=$(find ${local_package_path} -type f -name "apache-maven-*.zip")
   echo "maven_file_path:${maven_file_path}"
   sudo unzip ${maven_file_path} -d ${maven_install_path}
   install_file_path=$(find ${maven_install_path} -type d -name "apache-maven-*")
+  sudo chmod -R 755 ${install_file_path}
   echo "install_file_path:${install_file_path}"
-  echo "maven_install_path:${maven_install_path}"
-  sudo rm -rf ${maven_install_path}/maven
-  sudo mv ${install_file_path} ${maven_install_path}/maven
-  sudo ln -s -f ${config_base_path}/maven/maven.sh /etc/profile.d/maven.sh
+
+  sudo sh -c "echo '#!/bin/bash' > /etc/profile.d/maven.sh"
+  sudo sh -c "echo 'export MAVEN_OPTS=-Xmx1g' >> /etc/profile.d/maven.sh"
+  sudo sh -c "echo 'export M2_HOME=${install_file_path}' >> /etc/profile.d/maven.sh"
+  sudo sh -c "echo 'export PATH=\$PATH:\$M2_HOME/bin' >> /etc/profile.d/maven.sh"
+
   sudo chmod 755 /etc/profile.d/maven.sh
 fi
 
@@ -71,12 +64,18 @@ echo -e "\e[1;33m     installed maven \e[0m"
 
 # install tomcate begin
 echo -e "\e[1;33m     installing tomcat8 \e[0m"
-yay -S --noconfirm --needed tomcat8
-sudo chmod 755 -R /usr/share/tomcat8/conf
-sudo chmod 755 -R /usr/share/tomcat8/bin
-sudo chmod 755 -R /usr/share/java/tomcat8
-sudo chmod 777 -R /var/lib/tomcat8/webapps/manager
-sudo chmod 777 -R /var/tmp/tomcat8/temp
+  tomcat_major=8
+  tomcat_install_path="/usr/local"
+  echo "tomcat_install_path:${tomcat_install_path}"
+  tomcat_file_path=$(find ${local_package_path} -type f -name "apache-tomcat-${tomcat_major}*.zip")
+  echo "tomcat_file_path:${tomcat_file_path}"
+  sudo rm -rf ${tomcat_install_path}/apache-tomcat-${tomcat_major}*
+  sudo unzip -q ${tomcat_file_path} -d ${tomcat_install_path}
+  install_file_path=$(find ${tomcat_install_path} -type d -name "apache-tomcat-${tomcat_major}*")
+  echo "install_file_path:${install_file_path}"
+  sudo chmod -R 755 ${install_file_path}
+  sudo chmod 777 -R ${install_file_path}/webapps/manager
+  sudo chmod 777 -R ${install_file_path}/temp
 echo -e "\e[1;33m     installed tomcat8 \e[0m"
 # install tomcate end
 
