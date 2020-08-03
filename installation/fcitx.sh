@@ -23,4 +23,10 @@ cp -rf ${config_path}/table ~/.config/fcitx/
 rm -rf ~/.config/fcitx/conf
 ln -f -s ${config_path}/conf ~/.config/fcitx/
 
+if [ $(grep -c -e "fcitx" /etc/environment) -eq '0' ]; then
+  sudo sh -c "echo 'GTK_IM_MODULE=fcitx' >> /etc/environment"
+  sudo sh -c "echo 'QT_IM_MODULE=fcitx' >> /etc/environment"
+  sudo sh -c "echo 'export XMODIFIERS=\"@im=fcitx\"' >> /etc/environment"
+fi
+
 echo -e "\e[1;33m     installed \e[0m"
