@@ -45,7 +45,10 @@ yay -S --noconfirm --needed python2
 
 # install package and software
 echo -e "\e[1;33m     installing package and software \e[0m"
-yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools
+yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools zip unzip
+# for wireless
+# https://www.cnblogs.com/elphly/archive/2012/10/04/2711697.html
+yay -S --noconfirm --needed wpa_supplicant wireless-tools
 #yay -S --noconfirm --needed flameshot
 sudo systemctl enable sshd.service
 sudo systemctl restart sshd.service

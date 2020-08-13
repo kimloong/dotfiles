@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+# https://www.zhihu.com/question/333951476/answer/1280162871 后续改用fcitx5
 echo -e "\e[1;33m fcitx \e[0m"
 echo -e "\e[1;33m     installing \e[0m"
 

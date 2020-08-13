@@ -23,8 +23,8 @@ if [ ! -f /usr/bin/java ]; then
   sudo tar -zxf ${jdk_file_path}
 
   install_file_path=$(find ${jdk_install_path} -type d -name "jdk1.${jdk_major}*")
-  sudo chmod -R 755 ${install_file_path}
   echo "install_file_path:${install_file_path}"
+  sudo chmod -R 755 ${install_file_path}
 
   sudo sh -c "echo '#!/bin/bash' > /etc/profile.d/jdk.sh"
   sudo sh -c "echo 'export JAVA_HOME=${install_file_path}' >> /etc/profile.d/jdk.sh"

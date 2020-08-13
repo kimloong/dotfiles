@@ -11,16 +11,16 @@ git config user.name ${PERSONAL_GIT_USER_NAME}
 cd ${last_path}
 
 # prepare and initial system
-bash ${work_path}/prepare.sh || (
-  echo "prepare failed"
-  exit 1
-)
+#bash ${work_path}/prepare.sh || (
+#  echo "prepare failed"
+#  exit 1
+#)
 
 # install v2ray
-bash ${work_path}/v2ray.sh || (
-  echo "greatwall failed"
-  exit 1
-)
+#bash ${work_path}/v2ray.sh || (
+#  echo "greatwall failed"
+#  exit 1
+#)
 
 # install font
 bash ${work_path}/font.sh || (
