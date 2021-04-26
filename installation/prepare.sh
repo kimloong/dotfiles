@@ -25,10 +25,13 @@ sudo locale-gen
 sudo localectl set-locale LANG=zh_CN.UTF-8
 echo -e "\e[1;33m     finish setting language \e[0m"
 
-ln -s -f ${base_path}/Xresources ~/.Xresources
-ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
-ln -s -f ${base_path}/xinitrc ~/.xinitrc
+# ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
 ln -s -f ${base_path}/xprofile ~/.xprofile
+
+sudo pacman -S --noconfirm --needed yay
+yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+# default aur
+# yay --aururl "https://aur.archlinux.org" --save
 
 # install common make tools
 yay -S --noconfirm --needed go
@@ -38,6 +41,7 @@ if [ $(grep -c -e "GOPROXY" /etc/profile) -eq '0' ]; then
 fi
 source /etc/profile
 
+yay -S --noconfirm --needed base-devel
 yay -S --noconfirm --needed rust cmake
 yay -S --noconfirm --needed nodejs npm electron
 yay -S --noconfirm --needed python2
@@ -47,27 +51,16 @@ echo -e "\e[1;33m     installing package and software \e[0m"
 yay -S --noconfirm --needed neovim openssh yay qt5-svg qt5-base qt5-tools flameshot
 sudo systemctl enable sshd.service
 sudo systemctl restart sshd.service
-yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
-# default aur
-# yay --aururl "https://aur.archlinux.org" --save
 
 # chrome
 yay -S --noconfirm --needed google-chrome
 # set default browser
 sudo xdg-settings set default-web-browser google-chrome.desktop
-xdg-mime default google-chrome.desktop text/html
-xdg-mime default google-chrome.desktop x-scheme-handler/http
-xdg-mime default google-chrome.desktop x-scheme-handler/https
-xdg-mime default google-chrome.desktop x-scheme-handler/about
-# xdg-mime query default text/html
-# xdg-mime query default x-scheme-handler/http
-# xdg-mime query default x-scheme-handler/https
-# xdg-mime query default x-scheme-handler/about
 
 # l2tp
-yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
+# yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
 
-yay -S --noconfirm --needed htop
+yay -S --noconfirm --needed htop unzip
 
 echo -e "\e[1;33m     installed package and software \e[0m"
 

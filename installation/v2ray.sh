@@ -11,6 +11,7 @@ config_path="${base_path}/config/v2ray"
 
 yay -S --noconfirm --needed v2ray
 sudo mkdir -p /var/log/v2ray
+sudo chmod 777 /var/log/v2ray
 sudo systemctl enable v2ray
 sudo systemctl start v2ray
 

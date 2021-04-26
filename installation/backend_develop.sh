@@ -6,43 +6,18 @@ work_path=$(dirname $(readlink -f $0))
 base_path=$(dirname $(readlink -f ${work_path}))
 config_base_path="${base_path}/config"
 
-local_package_path="${HOME}/Downloads"
+local_package_path="${HOME}/Downloads/init_packages"
 last_path=$(pwd)
 
 # install jdk begin
 echo -e "\e[1;33m     installing jdk \e[0m"
 jdk_major=8
 
-if [ ! -f /usr/bin/java ]; then
-   yay -S --noconfirm --needed jdk8
-#  jdk_file_path=$(find ${local_package_path} -type f -name "jdk-${jdk_major}*.tar.gz")
-#  jdk_filename=${jdk_file_path##*/}
-#  if [ -z "${jdk_filename}" ]; then
-#    echo -e "\e[1;31m     Can't find jdk local package in ${local_package_path}! \e[0m"
-#    exit 1
-#  fi
-#
-#  jce_policy_file_path=$(find ${local_package_path} -type f -name "jce_policy-${jdk_major}.zip")
-#  jce_policy_filename=${jce_policy_file_path##*/}
-#  if [ -z "${jce_policy_filename}" ]; then
-#    echo -e "\e[1;31m     Can't find jce_policy local package in ${local_package_path}! \e[0m"
-#    exit 1
-#  fi
-#
-#  cd "${local_package_path}"
-#  rm -rf jdk${jdk_major}
-#  git clone https://aur.archlinux.org/jdk${jdk_major}.git
-#  cd jdk${jdk_major}
-#
-#  ln -s ${local_package_path}/jce_policy-${jdk_major}.zip ./
-#  sed -i '/^source\[1\]=\"manual:\/\/\${_srcfil\}\"/i\source[0]="jce_policy-$aaa
-#  {_major}.zip"' PKGBUILD
-#  makepkg -sri
-#
-#  rm -rf jdk${jdk_major}
-#  cd ${last_path}
-
-fi
+if [ ! -d /usr/local/jdk1.8.0_241 ]; then
+  # yay -S --noconfirm --needed jdk8
+  sudo tar -zxvf ${local_package_path}/jdk-8u241-linux-x64.tar.gz -C /usr/local
+  sudo ln -s -f ${config_base_path}/jdk/jdk.sh /etc/profile.d/jdk.sh
+  fi
 
 echo -e "\e[1;33m     installed jdk \e[0m"
 # install jdk end
@@ -71,12 +46,16 @@ echo -e "\e[1;33m     installed maven \e[0m"
 
 # install tomcate begin
 echo -e "\e[1;33m     installing tomcat8 \e[0m"
-yay -S --noconfirm --needed tomcat8
-sudo chmod 755 -R /usr/share/tomcat8/conf
-sudo chmod 755 -R /usr/share/tomcat8/bin
-sudo chmod 755 -R /usr/share/java/tomcat8
-sudo chmod 777 -R /var/lib/tomcat8/webapps/manager
-sudo chmod 777 -R /var/tmp/tomcat8/temp
+if [ ! -d /opt/tomcat8 ]; then
+  tomcat_install_path="/opt"
+  tomcat_file_path=$(find ${local_package_path} -type f -name "apache-tomcat-*.zip")
+  echo "tomcat_file_path:${tomcat_file_path}"
+  sudo unzip ${tomcat_file_path} -d ${tomcat_install_path}
+  install_file_path=$(find ${tomcat_install_path} -type d -name "apache-tomcat-*")
+  echo "install_file_path:${install_file_path}"
+  echo "tomcat_install_path:${tomcat_install_path}"
+  sudo mv ${install_file_path} ${tomcat_install_path}/tomcat8
+fi
 echo -e "\e[1;33m     installed tomcat8 \e[0m"
 # install tomcate end
 
@@ -99,6 +78,7 @@ fi
 
 # redis-desktop-manager download source code too slow
 # yay -S --noconfirm --needed redis-desktop-manager
+# yay -S --noconfirm --needed robo3t-bin
 
 echo -e "\e[1;33m     installed database tool \e[0m"
 
@@ -113,8 +93,8 @@ EOF
 echo -e "\e[1;33m     installed docker \e[0m"
 
 echo -e "\e[1;33m     installing virtualbox \e[0m"
-yay -S --noconfirm --needed virtualbox dkms linux-headers linux54-virtualbox-host-modules
-sudo modprobe vboxdrv
+# yay -S --noconfirm --needed virtualbox dkms linux-headers linux510-virtualbox-host-modules
+# sudo modprobe vboxdrv
 echo -e "\e[1;33m     installing virtualbox \e[0m"
 
 echo -e "\e[1;33m     installing other tool \e[0m"

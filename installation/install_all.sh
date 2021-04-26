@@ -28,39 +28,9 @@ bash ${work_path}/font.sh || (
   exit 1
 )
 
-# install random wallpaper
-bash ${work_path}/wallpaper.sh || (
-  echo "wallpaper failed"
-  exit 1
-)
-
 # install fcitx
 bash ${work_path}/fcitx.sh || (
   echo "fcitx failed"
-  exit 1
-)
-
-# install picom
-bash ${work_path}/picom.sh || (
-  echo "picom failed"
-  exit 1
-)
-
-# install rofi
-bash ${work_path}/rofi.sh || (
-  echo "rofi failed"
-  exit 1
-)
-
-# install polybar
-bash ${work_path}/polybar.sh || (
-  echo "polybar failed"
-  exit 1
-)
-
-# install i3
-bash ${work_path}/i3.sh || (
-  echo "i3 failed"
   exit 1
 )
 
@@ -70,26 +40,20 @@ bash ${work_path}/ranger.sh || (
   exit 1
 )
 
-# install dunst
-bash ${work_path}/dunst.sh || (
-  echo "dunst failed"
-  exit 1
-)
-
 # install zsh
 bash ${work_path}/zsh.sh || (
   echo "zsh failed"
   exit 1
 )
 
-# install java
-#bash ${work_path}/backend_develop.sh || (
-#  echo "backend develop.sh failed"
-#  exit 1
-#)
+install java
+bash ${work_path}/backend_develop.sh || (
+  echo "backend develop.sh failed"
+  exit 1
+)
 
-# install option software and package
-#bash ${work_path}/options.sh || (
-#  echo "prepare options failed"
-#  exit 1
-#)
+install option software and package
+bash ${work_path}/options.sh || (
+  echo "prepare options failed"
+  exit 1
+)
