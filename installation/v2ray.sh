@@ -19,7 +19,7 @@ sudo cp -f ${config_path}/v2ray-config.json /etc/v2ray/config.json
 vnext_users_id_placeholder="{outbounds.settings.vnext.users.id}"
 # use the under command to generate str_need_dec
 # echo "the_vnext_users_id value"|openssl enc -aes-256-cfb -e -base64 -k "the_password" -salt
-str_need_dec="U2FsdGVkX1+7qhqVrmTgHvStw3oNQebcKa5LyL0SlYL/gXGqG18oAoyjqiHtE1I6BGNu0rY="
+str_need_dec="U2FsdGVkX1+v7tt1mwM/63yQ3QsJnROEVtOXuyjPMcpt5fLxlZ4oTL0="
 read -s -p "Please enter vnext users id enc password > " password
 vnext_users_id=$(echo $str_need_dec | openssl enc -aes-256-cfb -d -base64 -k $password -salt)
 
