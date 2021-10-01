@@ -18,18 +18,18 @@ sudo pacman-mirrors -c China
 sudo pacman -Ssy
 
 echo -e "\e[1;33m     setting language \e[0m"
-sudo locale -a
-sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
-sudo sed -i "s/^en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g" /etc/locale.gen
-sudo locale-gen
-sudo localectl set-locale LANG=zh_CN.UTF-8
+# sudo locale -a
+# sudo sed -i "s/^#zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g" /etc/locale.gen
+# sudo sed -i "s/^en_US.UTF-8 UTF-8/#en_US.UTF-8 UTF-8/g" /etc/locale.gen
+# sudo locale-gen
+# sudo localectl set-locale LANG=zh_CN.UTF-8
 echo -e "\e[1;33m     finish setting language \e[0m"
 
 # ln -s -f ${base_path}/Xmodmap ~/.Xmodmap
 ln -s -f ${base_path}/xprofile ~/.xprofile
 
 sudo pacman -S --noconfirm --needed yay
-yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+# yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 # default aur
 # yay --aururl "https://aur.archlinux.org" --save
 
@@ -60,7 +60,7 @@ sudo xdg-settings set default-web-browser google-chrome.desktop
 # l2tp
 # yay -S --noconfirm --needed networkmanager-l2tp networkmanager-strongswan
 
-yay -S --noconfirm --needed htop unzip
+yay -S --noconfirm --needed htop unzip-iconv
 
 echo -e "\e[1;33m     installed package and software \e[0m"
 

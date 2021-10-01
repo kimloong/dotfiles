@@ -6,7 +6,7 @@ work_path=$(dirname $(readlink -f $0))
 base_path=$(dirname $(readlink -f ${work_path}))
 config_base_path="${base_path}/config"
 
-local_package_path="${HOME}/Downloads/init_packages"
+local_package_path="${HOME}/init_packages"
 last_path=$(pwd)
 
 # install jdk begin
@@ -62,7 +62,7 @@ echo -e "\e[1;33m     installed tomcat8 \e[0m"
 # install idea begin
 echo -e "\e[1;33m     installing idea \e[0m"
 if [ ! -f /usr/bin/idea ]; then
-  yay -S --noconfirm --needed intellij-idea-ultimate-edition
+  yay -S --noconfirm --needed intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre
   sudo ln -s -f /usr/bin/intellij-idea-ultimate-edition /usr/bin/idea
 fi
 echo -e "\e[1;33m     installed idea \e[0m"
@@ -70,11 +70,11 @@ echo -e "\e[1;33m     installed idea \e[0m"
 
 echo -e "\e[1;33m     installing database tool \e[0m"
 yay -S --noconfirm --needed mysql-workbench
-if [ ! -f /usr/bin/mongodb-compass ]; then
-  export ALL_PROXY=socks5://127.0.0.1:1080
-  yay -S --noconfirm --needed mongodb-compass
-  unset ALL_PROXY
-fi
+# if [ ! -f /usr/bin/mongodb-compass ]; then
+#  export ALL_PROXY=socks5://127.0.0.1:1080
+#  yay -S --noconfirm --needed mongodb-compass
+#  unset ALL_PROXY
+# fi
 
 # redis-desktop-manager download source code too slow
 # yay -S --noconfirm --needed redis-desktop-manager

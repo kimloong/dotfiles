@@ -31,6 +31,12 @@ yay -S --noconfirm --needed code
 yay -S --noconfirm --needed teamviewer
 # sudo teamviewer daemon start
 
+# command: deepin-screenshot
+yay -S --noconfirm --needed deepin-screenshot
+
 echo -e "\e[1;33m     installed install other tool \e[0m"
+export LANG=en_US
+sudo pacman -S xdg-user-dirs-gtk
+xdg-user-dirs-gtk-update
 
 echo -e "\e[1;33m installed prepare option \e[0m"
